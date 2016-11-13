@@ -98,7 +98,6 @@ set ffs=unix,dos,mac        " Use Unix as the standard file type
 " => Key Bindings
 """"""""""""""""""""""""""""""
 inoremap jk <esc>
-nmap <leader>w :w!<cr>
 
 let mapleader=","
 let g:mapleader = ","
