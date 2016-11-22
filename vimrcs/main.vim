@@ -27,6 +27,7 @@ Plugin 'easymotion/vim-easymotion'
 call vundle#end()
 set mouse=a
 set ttymouse=sgr        "fixes issue with mouse not working past 220th column"
+set clipboard=unnamed
 
 try
     source ~/.vim/vimrcs/plugins_config.vim
