@@ -12,7 +12,6 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-commentary'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'SirVer/ultisnips'
 Plugin 'isRuslan/vim-es6'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-fugitive'
@@ -23,6 +22,8 @@ Plugin 'honza/vim-snippets'
 Plugin 'othree/yajs.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'digitaltoad/vim-pug'
+Plugin 'mustache/vim-mustache-handlebars'
 
 call vundle#end()
 set mouse=a
