@@ -7,6 +7,7 @@ call vundle#begin('~/.vim_runtime/bundle')
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'joshdick/onedark.vim'
+Plugin 'reedes/vim-colors-pencil'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-commentary'
@@ -24,6 +25,8 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
 
 call vundle#end()
 set mouse=a
@@ -52,11 +55,11 @@ set lazyredraw              " Don't redraw while executing macros (good performa
 """""""""""""""""""""""
 " => Spaces and Tabs
 """""""""""""""""""""""
-set tabstop=2               " number of visual spaces per TAB
+set tabstop=4               " number of visual spaces per TAB
 set expandtab               " tabs are spaces
 set smarttab
-set softtabstop=2           " number of spaces in tab when editing
-set shiftwidth=2
+set softtabstop=4           " number of spaces in tab when editing
+set shiftwidth=4
 
 set modelines=1
 
@@ -152,6 +155,56 @@ map <leader>bd :Bclose<cr>:tabclose<cr>gT
 
 map <Tab> :bnext<cr>
 map <S-Tab> :bprevious<cr>
+
+" Goyo and Limelight
+function! s:goyo_enter()
+  colorscheme pencil
+  highlight Normal ctermfg=black
+  silent !tmux set status off
+  silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  set nolist
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+  Limelight
+endfunction
+
+function! s:goyo_leave()
+  colorscheme onedark
+  silent !tmux set status on
+  silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+  set list
+  set showmode
+  set showcmd
+  set scrolloff=5
+  Limelight!
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+map <leader>go :Goyo<cr>
+
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+
+" Color name (:help gui-colors) or RGB color
+let g:limelight_conceal_guifg = 'DarkGray'
+
+" Default: 0.5
+let g:limelight_default_coefficient = 0.7
+
+" Number of preceding/following paragraphs to include (default: 0)
+" let g:limelight_paragraph_span = 1
+
+" Beginning/end of paragraph
+"   When there's no empty line between the paragraphs
+"   and each paragraph starts with indentation
+let g:limelight_bop = '^\s'
+let g:limelight_eop = '\ze\n^\s'
+
+" Highlighting priority (default: 10)
+"   Set it to -1 not to overrule hlsearch
+let g:limelight_priority = -1
 
 " Specify the behavior when switching between buffers 
 try
