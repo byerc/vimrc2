@@ -52,3 +52,13 @@ let g:gundo_prefer_python3 = 1
 """"""""""""""""""""""""""""""""""
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+""""""""""""""""""""""""""""""""""
+" => goyo
+""""""""""""""""""""""""""""""""""
+let g:goyo_width = 120
+
+""""""""""""""""""""""""""""""""""
+" => youcompleteme
+""""""""""""""""""""""""""""""""""
+let g:ycm_key_list_select_completion = ['<Enter>', '<TAB>', '<Down>']

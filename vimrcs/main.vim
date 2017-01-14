@@ -27,6 +27,8 @@ Plugin 'digitaltoad/vim-pug'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
+Plugin 'Valloric/YouCompleteMe' 
+Plugin 'ternjs/tern_for_vim'
 
 call vundle#end()
 set mouse=a
@@ -110,6 +112,7 @@ let g:mapleader = ","
 
 nnoremap <leader>nn :NERDTree<CR>
 let g:ctrlp_map = '<leader>j' " ctrlp mapping
+nnoremap ; :
 
 """""""""""""""""""""""""""""""
 " => The Silver Searcher
@@ -321,4 +324,6 @@ function SetupJavaScriptLinter()
   call CheckJavaScriptLinter(l:bin_folder . 'eslint', 'eslint')
 endfunction
 
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType javascript call SetupJavaScriptLinter()
+
