@@ -29,11 +29,18 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 Plugin 'Valloric/YouCompleteMe' 
 Plugin 'ternjs/tern_for_vim'
+Plugin 'fatih/vim-go'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-surround'
 
 call vundle#end()
 set mouse=a
 set ttymouse=sgr        "fixes issue with mouse not working past 220th column"
 set clipboard=unnamed
+set noshowmode
 
 try
     source ~/.vim/vimrcs/plugins_config.vim
@@ -70,7 +77,7 @@ filetype plugin on
 
 set autoindent              " indent when creating new line
 set number                  " show line numbers
-set showcmd                 " show command in bottom bar
+" set showcmd                 " show command in bottom bar
 set nocursorline            " highlight current line
 set wildmenu                " deals with autocomplete on the command line. See ':help wildmenu'
 set showmatch               " higlight matching parenthesis
