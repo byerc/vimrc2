@@ -1,17 +1,15 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim_runtime/bundle/Vundle.vim
 
-call vundle#begin('~/.vim_runtime/bundle')
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'joshdick/onedark.vim'
-Plugin 'reedes/vim-colors-pencil'
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'Raimondi/delimitMate'
-Plugin 'tpope/vim-commentary'
-Plugin 'scrooloose/nerdtree'
+Plug 'joshdick/onedark.vim'
+Plug 'reedes/vim-colors-pencil'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-commentary'
+Plug 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'isRuslan/vim-es6'
 Plugin 'pangloss/vim-javascript'
@@ -35,8 +33,10 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-surround'
+Plugin 'jungomi/vim-mdnquery'
+Plugin 'Raimondi/delimitMate'
 
-call vundle#end()
+call plug#end()
 set mouse=a
 set ttymouse=sgr        "fixes issue with mouse not working past 220th column"
 set clipboard=unnamed
@@ -77,7 +77,7 @@ filetype plugin on
 
 set autoindent              " indent when creating new line
 set number                  " show line numbers
-" set showcmd                 " show command in bottom bar
+set showcmd                 " show command in bottom bar
 set nocursorline            " highlight current line
 set wildmenu                " deals with autocomplete on the command line. See ':help wildmenu'
 set showmatch               " higlight matching parenthesis

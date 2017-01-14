@@ -1,6 +1,6 @@
-cd ~/.vim_runtime
+cd ~/.vim
 
-echo 'source ~/.vim_runtime/vimrcs/main.vim
-source ~/.vim_runtime/vimrcs/plugins.vim' > ~/.vimrc
+echo 'source ~/.vim/vimrcs/main.vim
+source ~/.vim/vimrcs/plugins.vim' > ~/.vimrc
 
 echo "Installed vim configuration successfully."
