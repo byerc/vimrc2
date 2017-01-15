@@ -9,7 +9,6 @@ Plug 'reedes/vim-colors-pencil'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
-Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'isRuslan/vim-es6'
 Plug 'pangloss/vim-javascript'
@@ -41,6 +40,11 @@ set mouse=a
 set ttymouse=sgr        "fixes issue with mouse not working past 220th column"
 set clipboard=unnamed
 set noshowmode
+
+"""""""""""""""""""""
+" netrw - file explorer native to vim
+"""""""""""""""""""""
+let g:netrw_banner = 0
 
 try
     source ~/.vim/vimrcs/plugins_config.vim
@@ -117,7 +121,6 @@ inoremap jk <esc>
 let mapleader=","
 let g:mapleader = ","
 
-nnoremap <leader>nn :NERDTree<CR>
 let g:ctrlp_map = '<leader>j' " ctrlp mapping
 nnoremap ; :
 
@@ -228,7 +231,7 @@ endtry
 "    means that you can undo even when you close a buffer/VIM
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 try
-  set undodir=~/.vim_runtime/tmp/undodir
+  set undodir=~/.vim/tmp/undodir
   set undofile
 catch
 endtry
