@@ -146,6 +146,7 @@ nnoremap <leader>n :call VexToggle("")<cr>
 let g:netrw_banner = 0
 let g:netrw_liststyle=3
 let g:netrw_preview = 1
+let g:netrw_dirhistmax=0
 
 fun! VexToggle(dir)
     if exists("t:vex_buf_nr")
