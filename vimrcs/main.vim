@@ -28,7 +28,5 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
-Plug 'jungomi/vim-mdnquery'
-Plug 'Raimondi/delimitMate'
 
 call plug#end()
