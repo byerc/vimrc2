@@ -1,6 +1,3 @@
-set nocompatible
-filetype off
-
 
 call plug#begin('~/.vim/plugged')
 
@@ -36,83 +33,13 @@ Plug 'jungomi/vim-mdnquery'
 Plug 'Raimondi/delimitMate'
 
 call plug#end()
-set mouse=a
-set ttymouse=sgr        "fixes issue with mouse not working past 220th column"
+
 set clipboard=unnamed
-set noshowmode
-
-""""""""""""""""""""""""""""""
-" => Key Bindings
-""""""""""""""""""""""""""""""
-inoremap jk <esc>
-
-let mapleader=","
-let g:mapleader = ","
-nnoremap ; :
-
-
-"""""""""""""""""""""
-" netrw - file explorer native to vim
-"""""""""""""""""""""
-"Open netrw in resume explore
-" nnoremap <leader>nf :call VexToggle(getcwd())<CR>
-nnoremap <leader>n :call VexToggle("")<cr>
-let g:netrw_banner = 0
-let g:netrw_liststyle=3
-let g:netrw_preview = 1
-
-fun! VexToggle(dir)
-    if exists("t:vex_buf_nr")
-        call VexClose()
-    else
-        call VexOpen(a:dir)
-    endif
-endf
-
-fun! VexOpen(dir)
-    let g:netrw_browse_split=4 " open files in previous window
-    let vex_width = 25
-
-    execute "Vexplore " . a:dir
-    let t:vex_buf_nr = bufnr("%")
-    wincmd H
-
-    call VexSize(vex_width)
-endf
-
-fun! VexClose()
-    let cur_win_nr = winnr()
-    let target_nr = ( cur_win_nr == 1 ? winnr("#") : cur_win_nr )
-
-    1wincmd w
-    close
-    unlet t:vex_buf_nr
-
-    execute (target_nr - 1) . "wincmd w"
-    call NormalizeWidths()
-endf
-
-fun! VexSize(vex_width)
-    execute "vertical resize" . a:vex_width
-    set winfixwidth
-    call NormalizeWidths()
-endf
-
-fun! NormalizeWidths()
-    let eadir_pref = &eadirection
-    set eadirection=hor
-    set equalalways! equalalways!
-    let &eadirection = eadir_pref
-endf
 
 try
-    " source ~/.vim/vimrcs/plugins_config.vim
+    source ~/.vim/vimrcs/plugins_config.vim
 catch
 endtry
-
-filetype plugin indent on
-
-syntax enable               " enable syntax processing
 
 set bg=dark
 colorscheme onedark         " Set colorscheme
@@ -134,9 +61,6 @@ set softtabstop=4           " number of spaces in tab when editing
 set shiftwidth=4
 
 set modelines=1
-
-filetype indent on          " load filetype-specific indent files
-filetype plugin on
 
 set autoindent              " indent when creating new line
 set number                  " show line numbers
@@ -163,15 +87,6 @@ set laststatus=2
 " Format the status line
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
-" No annoying sound on errors
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
-
-set encoding=utf8           " Set utf8 as standard encoding and en_US as the standard language
-set ffs=unix,dos,mac        " Use Unix as the standard file type
-
 """""""""""""""""""""""""""""""
 " => The Silver Searcher
 """""""""""""""""""""""""""""""
@@ -194,13 +109,6 @@ if executable('ag')
   map <leader>g :Ag 
 endif
 
-""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Files, backups and undo
-""""""""""""""""""""""""""""""""""""""""""""""""""
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
-set nobackup
-set nowb
-set noswapfile
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
@@ -217,70 +125,10 @@ map <leader>bd :Bclose<cr>:tabclose<cr>gT
 map <Tab> :bnext<cr>
 map <S-Tab> :bprevious<cr>
 
-" Goyo and Limelight
-function! s:goyo_enter()
-  colorscheme pencil
-  highlight Normal ctermfg=black
-  silent !tmux set status off
-  silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
-  set nolist
-  set noshowmode
-  set noshowcmd
-  set scrolloff=999
-  Limelight
-endfunction
-
-function! s:goyo_leave()
-  colorscheme onedark
-  silent !tmux set status on
-  silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
-  set list
-  set showmode
-  set showcmd
-  set scrolloff=5
-  Limelight!
-endfunction
-
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-map <leader>go :Goyo<cr>
-
-" Color name (:help cterm-colors) or ANSI code
-let g:limelight_conceal_ctermfg = 'gray'
-
-" Color name (:help gui-colors) or RGB color
-let g:limelight_conceal_guifg = 'DarkGray'
-
-" Default: 0.5
-let g:limelight_default_coefficient = 0.7
-
-" Number of preceding/following paragraphs to include (default: 0)
-" let g:limelight_paragraph_span = 1
-
-" Beginning/end of paragraph
-"   When there's no empty line between the paragraphs
-"   and each paragraph starts with indentation
-let g:limelight_bop = '^\s'
-let g:limelight_eop = '\ze\n^\s'
-
-" Highlighting priority (default: 10)
-"   Set it to -1 not to overrule hlsearch
-let g:limelight_priority = -1
-
 " Specify the behavior when switching between buffers 
 try
   set switchbuf=useopen,usetab,newtab
   set stal=2
-catch
-endtry
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Turn persistent undo on 
-"    means that you can undo even when you close a buffer/VIM
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-try
-  set undodir=~/.vim/tmp/undodir
-  set undofile
 catch
 endtry
 
@@ -361,27 +209,4 @@ function! <SID>BufcloseCloseIt()
     execute("bdelete!".l:currentBufNum)
   endif
 endfunction
-
-" Syntastic local linter support
-let g:syntastic_javascript_checkers = []
-function CheckJavaScriptLinter(filepath, linter)
-  if exists('b:syntastic_checkers')
-    return
-  endif
-  if filereadable(a:filepath)
-    let b:syntastic_checkers = [a:linter]
-    let {'b:syntastic_' . a:linter . '_exec'} = a:filepath
-  endif
-endfunction
-
-function SetupJavaScriptLinter()
-  let l:current_folder = expand('%:p:h')
-  let l:bin_folder = fnamemodify(syntastic#util#findFileInParent('package.json', l:current_folder), ':h')
-  let l:bin_folder = l:bin_folder . '/node_modules/.bin/'
-  call CheckJavaScriptLinter(l:bin_folder . 'standard', 'standard')
-  call CheckJavaScriptLinter(l:bin_folder . 'eslint', 'eslint')
-endfunction
-
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType javascript call SetupJavaScriptLinter()
 
