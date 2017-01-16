@@ -54,6 +54,7 @@ if has('mouse')
   set mouse=a
   set ttymouse=sgr        "fixes issue with mouse not working past 220th column"
 endif
+set clipboard=unnamedplus
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Searching
