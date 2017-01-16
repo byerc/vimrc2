@@ -143,55 +143,55 @@ set noswapfile
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Open netrw in resume explore
 " nnoremap <leader>nf :call VexToggle(getcwd())<CR>
-nnoremap <leader>n :call VexToggle("")<cr>
-let g:netrw_banner = 0
-let g:netrw_liststyle=3
-let g:netrw_preview = 1
-let g:netrw_dirhistmax=0
+" nnoremap <leader>n :call VexToggle("")<cr>
+" let g:netrw_banner = 0
+" let g:netrw_liststyle=3
+" let g:netrw_preview = 1
+" let g:netrw_dirhistmax=0
 
-fun! VexToggle(dir)
-    if exists("t:vex_buf_nr")
-        call VexClose()
-    else
-        call VexOpen(a:dir)
-    endif
-endf
+" fun! VexToggle(dir)
+"     if exists("t:vex_buf_nr")
+"         call VexClose()
+"     else
+"         call VexOpen(a:dir)
+"     endif
+" endf
 
-fun! VexOpen(dir)
-    let g:netrw_browse_split=4 " open files in previous window
-    let vex_width = 25
+" fun! VexOpen(dir)
+"     let g:netrw_browse_split=4 " open files in previous window
+"     let vex_width = 25
 
-    execute "Vexplore " . a:dir
-    let t:vex_buf_nr = bufnr("%")
-    wincmd H
+"     execute "Vexplore " . a:dir
+"     let t:vex_buf_nr = bufnr("%")
+"     wincmd H
 
-    call VexSize(vex_width)
-endf
+"     call VexSize(vex_width)
+" endf
 
-fun! VexClose()
-    let cur_win_nr = winnr()
-    let target_nr = ( cur_win_nr == 1 ? winnr("#") : cur_win_nr )
+" fun! VexClose()
+"     let cur_win_nr = winnr()
+"     let target_nr = ( cur_win_nr == 1 ? winnr("#") : cur_win_nr )
 
-    1wincmd w
-    close
-    unlet t:vex_buf_nr
+"     1wincmd w
+"     close
+"     unlet t:vex_buf_nr
 
-    execute (target_nr - 1) . "wincmd w"
-    call NormalizeWidths()
-endf
+"     execute (target_nr - 1) . "wincmd w"
+"     call NormalizeWidths()
+" endf
 
-fun! VexSize(vex_width)
-    execute "vertical resize" . a:vex_width
-    set winfixwidth
-    call NormalizeWidths()
-endf
+" fun! VexSize(vex_width)
+"     execute "vertical resize" . a:vex_width
+"     set winfixwidth
+"     call NormalizeWidths()
+" endf
 
-fun! NormalizeWidths()
-    let eadir_pref = &eadirection
-    set eadirection=hor
-    set equalalways! equalalways!
-    let &eadirection = eadir_pref
-endf
+" fun! NormalizeWidths()
+"     let eadir_pref = &eadirection
+"     set eadirection=hor
+"     set equalalways! equalalways!
+"     let &eadirection = eadir_pref
+" endf
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Turn persistent undo on 
