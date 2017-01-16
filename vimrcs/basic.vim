@@ -191,9 +191,34 @@ fun! NormalizeWidths()
     let &eadirection = eadir_pref
 endf
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Turn persistent undo on 
+"    means that you can undo even when you close a buffer/VIM
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+try
+    set undodir=~/.vim/temp_dirs/undodir
+    set undofile
+catch
+endtry
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Spell checking
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Pressing ,ss will toggle and untoggle spell checking
+map <leader>ss :setlocal spell!<cr>
+
+" Shortcuts using <leader>
+map <leader>sn ]s
+map <leader>sp [s
+map <leader>sa zg
+map <leader>s? z=
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Toggle paste mode on and off
+map <leader>pp :setlocal paste!<cr>
+
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
