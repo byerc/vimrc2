@@ -13,13 +13,13 @@ let mapleader=","
 let g:mapleader = ","
 
 "no need to hit shift
-nnoremap ; : 
+nnoremap ; :
 
 " Fast saving
 nmap <leader>w :w!<cr>
 
 " place cursor between braces
-inoremap { {<CR><BS>}<Esc>ko
+" inoremap { {<CR><BS>}<Esc>ko
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -108,10 +108,10 @@ endtry
 " => Status line
 """""""""""""""""""""""""""""""
 " Always show the status line
-set laststatus=2
+" set laststatus=2
 
 " Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+" set statusline=\%{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
 " Returns true if paste mode is enabled
 function! HasPaste()

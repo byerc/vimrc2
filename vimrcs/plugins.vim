@@ -163,17 +163,3 @@ let g:limelight_priority = -1
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
-
-"""""""""""""""""""""""""""""""""""
-" => supertab
-"""""""""""""""""""""""""""""""""""
-let g:SuperTabDefaultCompletionType    = '<C-n>'
-let g:SuperTabCrMapping                = 0
-
-""""""""""""""""""""""""""""""""""
-" => ultisnips
-""""""""""""""""""""""""""""""""""
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"]
