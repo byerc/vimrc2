@@ -1,12 +1,13 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'joshdick/onedark.vim'
+Plug 'raphamorim/lucario'
 Plug 'reedes/vim-colors-pencil'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'tpope/vim-commentary'
 Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree'
-Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
 Plug 'isRuslan/vim-es6'
 Plug 'pangloss/vim-javascript'
 Plug 'moll/vim-node'
