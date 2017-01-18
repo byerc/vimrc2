@@ -7,8 +7,7 @@ filetype indent on  " load filetype-specific indent files
 filetype plugin on
 
 "faster than reaching for esc
-inoremap jk <esc> 
-
+inoremap jk <esc>
 let mapleader=","
 let g:mapleader = ","
 
