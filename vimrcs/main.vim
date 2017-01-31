@@ -25,5 +25,9 @@ Plug 'ternjs/tern_for_vim', { 'do' : 'npm install' }
 Plug 'fatih/vim-go'
 Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()

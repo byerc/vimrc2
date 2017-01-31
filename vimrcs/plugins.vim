@@ -159,7 +159,12 @@ let g:limelight_priority = -1
 """"""""""""""""""""""""""""""""""
 " => youcompleteme
 """"""""""""""""""""""""""""""""""
-" let g:ycm_key_list_select_completion = ['<Enter>', '<TAB>', '<Down>']
+let g:ycm_key_list_select_completion = ['<ENTER>', '<TAB>', '<Down>']
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+" let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-airline config
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:airline_theme='solarized-dark'

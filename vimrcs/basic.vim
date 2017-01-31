@@ -44,7 +44,7 @@ set number                  " show line numbers
 set showcmd                 " show command in bottom bar
 set nocursorline            " highlight current line
 set list                    " show whitespace
-set listchars+=space:.
+set listchars+=space:.,tab:➝\ 
 " configure backspace so it acts as it should
 set backspace=indent,eol,start
 set whichwrap+=<,>,h,l
@@ -107,7 +107,7 @@ endtry
 " => Status line
 """""""""""""""""""""""""""""""
 " Always show the status line
-" set laststatus=2
+set laststatus=2
 
 " Format the status line
 " set statusline=\%{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
