@@ -161,6 +161,7 @@ let g:limelight_priority = -1
 """"""""""""""""""""""""""""""""""
 let g:ycm_key_list_select_completion = ['<ENTER>', '<TAB>', '<Down>']
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 " let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
 " let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
 
